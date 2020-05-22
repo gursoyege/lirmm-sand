@@ -1,1 +1,4 @@
 *.avi
+.vscode
+__pycache__
+backup

@@ -1,0 +1,10 @@
+<root>  
+  <action>poke</action>
+  <name>0158</name>
+  <bbox>
+    <xmin>332</xmin>
+    <ymin>288</ymin>
+    <xmax>383</xmax>
+    <ymax>336</ymax>
+  </bbox>
+</root>
