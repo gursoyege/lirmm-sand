@@ -10,7 +10,7 @@ allImages = []
 template = cv2.imread("templates/tap_hand.png", cv2.IMREAD_GRAYSCALE)
 template=cv2.medianBlur(template,1)
 
-for img in sorted(glob.glob("images/*.png")):
+for img in sorted(glob.glob("images_test/*.png")):
     raw = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
     img=cv2.medianBlur(raw,9)
     img2 = img.copy()

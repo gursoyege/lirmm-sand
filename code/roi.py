@@ -7,7 +7,7 @@ bBoxThresh = 500
 
 allImages = []
 
-for img in sorted(glob.glob("images/*.png")):
+for img in sorted(glob.glob("images_test/*.png")):
     n = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
     allImages.append(n)
 
