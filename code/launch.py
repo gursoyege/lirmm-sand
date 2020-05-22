@@ -5,4 +5,5 @@ xml_generator.clean()
 image_cropper.clean()
 
 xml_generator.run()
+image_verifier.run()
 image_cropper.run()
