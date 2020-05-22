@@ -1,0 +1,10 @@
+<root>
+  <action>poke</action>
+  <name>image0120.png</name>
+  <bbox>
+    <xmin>370</xmin>
+    <ymin>82</ymin>
+    <xmax>422</xmax>
+    <ymax>130</ymax>
+  </bbox>
+</root>

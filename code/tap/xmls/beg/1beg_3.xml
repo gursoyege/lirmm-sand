@@ -1,0 +1,10 @@
+<root>
+  <action>tap</action>
+  <name>image0002.png</name>
+  <bbox>
+    <xmin>418</xmin>
+    <ymin>127</ymin>
+    <xmax>628</xmax>
+    <ymax>380</ymax>
+  </bbox>
+</root>
