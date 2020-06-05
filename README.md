@@ -1,6 +1,6 @@
 # LIRMM-sand
 
-Sandbox project.
+Sand manipulation project.
 Master branch doesn't contain the output data which is the result after execution of the program.
 Example branch is the result of the executed Master branch which contains the output folder.
 
