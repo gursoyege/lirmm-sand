@@ -27,6 +27,10 @@ action # action to be performed.
 nSample # number of sample images to be generated for each image of the beginning and ending of an action.
 *_PATH # locations of the folders to be generated.
 ```
+Desired actions can be set by commenting out the modules in :
+```
+data_augmentor.py
+```
 
 Launch the data_augmentor package.
 
