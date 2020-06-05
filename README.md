@@ -87,6 +87,6 @@ resource/annotation/tap/image0012.xml
 output/annotation/tap/begin/3beg_4.xml
 # Cropped image generated according to the annotation file.
 output/class/tap/begin/3beg/3beg_4.jpg
-# Image is augmented and '71th' augmented image is generated.
+# Image is augmented and the '71th' augmented image is generated.
 output/data/tap/begin/3beg/3beg_4_71.jpg
 ```
