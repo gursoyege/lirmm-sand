@@ -1,0 +1,118 @@
+app:
+    task_config_files:
+      - name: app_config/action/home/home.yaml
+      - name: app_config/action/TR/pinch/0deg/begin.yaml
+      - name: app_config/action/TR/pinch/0deg/end.yaml
+      - name: app_config/action/TR/pinch/0deg/begin.yaml
+      - name: app_config/action/home/home.yaml
+robot:
+    control_points:
+      -   name: tcp_right
+          # task_priority: 1 #Decreasing priority level
+          body_name: end-effector_right
+          ref_body_name: fixed_base
+          limits:
+              max_velocity: [1, 1, 1, 1, 1, 1]
+              max_acceleration: [1, 1, 1, 1, 1, 1]
+          gains:
+              position_control:
+                proportional: [1, 1, 1, 1, 1, 1]
+
+    joint_groups:
+      # -   name: left_arm
+      #     priority: 1
+      #     joints: [joint1_left, joint2_left, joint3_left, joint4_left, joint5_left, joint6_left, joint7_left]
+      #     control_time_step: 0.005
+      #     selection_matrix: [1, 1, 1, 1, 1, 1, 1]
+      #     limits:
+      #         max_velocity: [1, 1, 1, 1, 1, 1, 1]
+      #         max_acceleration: [1, 1, 1, 1, 1, 1, 1]
+
+      -   name: right_arm
+          joints: [joint1_right, joint2_right, joint3_right, joint4_right, joint5_right, joint6_right, joint7_right]
+          control_time_step: 0.005
+          limits:
+              max_velocity: [1, 1, 1, 1, 1, 1, 1]
+              max_acceleration: [1, 1, 1, 1, 1, 1, 1]
+
+      -   name: shadow_hand
+          joints: [WRJ2,WRJ1,THJ5,THJ4,THJ3,THJ2,FFJ4,FFJ3,FFJ2,MFJ4,MFJ3,MFJ2,RFJ4,RFJ3,RFJ2,LFJ5,LFJ4,LFJ3,LFJ2]
+          control_time_step: 0.005 #0.001
+          limits:
+              # max_velocity: [1, 0.5, 0.5]
+              max_acceleration: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+joint_space_otgs:
+    -     joint_group: right_arm
+          input_data: PreviousOutput #PreviousOutput #CurrentState
+    -     joint_group: shadow_hand
+          input_data: PreviousOutput
+
+task_space_controller:
+    wrench_measure_enabled: false
+    control_time_step: 0.005
+
+ik_controller:
+    IK_type: StandardQP
+    QP_solver:
+      type: osqp
+      verbose: false
+      check_termination: 10
+      eps_abs: 1e-5
+      eps_rel: 1e-5
+
+model:
+    path: app_model/bazar_shadow.yaml
+    world_pose: [0, 0, 0, 0, 0, 0]
+
+joint_group_drivers:
+    -   type: vrep_main
+        cycle_time: 0.005
+        port: -1
+    -   type: vrep_joint
+        joint_group: right_arm
+        control_mode: Position
+        joint_names: [LBR4p_joint1, LBR4p_joint2, LBR4p_joint3, LBR4p_joint4, LBR4p_joint5, LBR4p_joint6, LBR4p_joint7]
+    -   type: vrep_joint
+        joint_group: shadow_hand
+        control_mode: Position
+        joint_names: [WRJ2,WRJ1,THJ5,THJ4,THJ3,THJ2,FFJ4,FFJ3,FFJ2,MFJ4,MFJ3,MFJ2,RFJ4,RFJ3,RFJ2,LFJ5,LFJ4,LFJ3,LFJ2]
+    # -   type: dummy
+    #     joint_group: right_arm
+    # -   type: dummy
+    #     joint_group: shadow_hand
+
+# collision_avoidance:
+#   d_activation: 0.05
+#   d_limit: 0.02
+#   damper_factor: 0.1
+#   disable_collisions:
+#     - link: fixed_base
+#       other_links: [link1_left, link2_left, link1_right, link2_right]
+#     - link: link1_left
+#       other_links: [link2_left, link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link2_left
+#       other_links: [link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link3_left
+#       other_links: [link4_left, link5_left, link1_right, link2_right]
+#     - link: link4_left
+#       other_links: [link5_left, link6_left, link7_left]
+#     - link: link5_left
+#       other_links: [link6_left, link7_left]
+#     - link: link6_left
+#       other_links: [link7_left]
+#     - link: link1_right
+#       other_links: [link2_right, link3_right, link4_right]
+#     - link: link2_right
+#       other_links: [link3_right, link4_right]
+#     - link: link3_right
+#       other_links: [link4_right, link5_right]
+#     - link: link4_right
+#       other_links: [link5_right, link6_right, link7_right]
+#     - link: link5_right
+#       other_links: [link6_right, link7_right]
+#     - link: link6_right
+#       other_links: [link7_right]
+
+logger:
+    log_folder: app_log

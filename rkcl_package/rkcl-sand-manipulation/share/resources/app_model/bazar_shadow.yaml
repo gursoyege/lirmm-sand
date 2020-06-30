@@ -1,0 +1,837 @@
+# Collision model for the kuka arm taken from https://github.com/CentroEPiaggio/kuka-lwr/blob/master/lwr_description/model/kuka_lwr.urdf.xacro
+robot:
+    name: BAZAR_MOBILE
+    anglesInDegrees: true
+    links:
+        # - name: link1_base
+        # - name: link2_base
+        # - name: link3_base
+        - name: fixed_base
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.859]
+                  rpy: [0, 0, 0]
+                geometry:
+                  superellipsoid:
+                      size: [0.24, 0.255, 0.5] #From Vrep ; WARNING: size is (x/2, y/2, z/2)
+                      epsilon1: 0
+                      epsilon2: 0
+                  # box:
+                  #     size: [0.48, 0.51, 1] #From Vrep
+                name: fixed_base_box1
+              - frame:
+                  xyz: [0, 0, 0.184]
+                  rpy: [0, 0, 0]
+                geometry:
+                  superellipsoid:
+                      size: [0.425, 0.37, 0.175] #From Vrep ; WARNING: size is (x/2, y/2, z/2)
+                      epsilon1: 0
+                      epsilon2: 0
+                  # box:
+                  #     size: [0.85, 0.74, 0.35] #From Vrep
+                name: fixed_base_box2
+        - name: link1_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.055]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link1_left_sphere
+        - name: link2_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_left_sphere1
+              - frame:
+                  xyz: [0, 0.06, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_left_sphere2
+              - frame:
+                  xyz: [0, 0.03, 0.1]
+                  rpy: [-0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_left_sphere3
+        - name: link3_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_left_sphere1
+              - frame:
+                  xyz: [0, -0.06, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_left_sphere2
+              - frame:
+                  xyz: [0, -0.03, 0.1]
+                  rpy: [-0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_left_sphere3
+        - name: link4_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_left_sphere1
+              - frame:
+                  xyz: [0, -0.06, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_left_sphere2
+              - frame:
+                  xyz: [0, -0.03, 0.1]
+                  rpy: [0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_left_sphere3
+        - name: link5_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_left_sphere1
+              - frame:
+                  xyz: [0, 0.06, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_left_sphere2
+              - frame:
+                  xyz: [0, 0.03, 0.1]
+                  rpy: [0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_left_sphere3
+        - name: link6_left
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_left_sphere1
+              - frame:
+                  xyz: [0, 0.04, 0.19]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_left_sphere2
+              - frame:
+                  xyz: [0, 0.02, 0.095]
+                  rpy: [-0.207, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_left_sphere3
+        - name: link7_left
+          collision:
+              - frame:
+                  xyz: [0, -0.01, 0]
+                  rpy: [0, 0, 3.1415]
+                geometry:
+                  sphere:
+                      radius: 0.08
+                name: link7_left_sphere
+        - name: end-effector_left
+        - name: link1_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.055]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link1_right_sphere
+        - name: link2_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_right_sphere1
+              - frame:
+                  xyz: [0, 0.06, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_right_sphere2
+              - frame:
+                  xyz: [0, 0.03, 0.1]
+                  rpy: [-0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link2_right_sphere3
+        - name: link3_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_right_sphere1
+              - frame:
+                  xyz: [0, -0.06, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_right_sphere2
+              - frame:
+                  xyz: [0, -0.03, 0.1]
+                  rpy: [-0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link3_right_sphere3
+        - name: link4_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_right_sphere1
+              - frame:
+                  xyz: [0, -0.06, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_right_sphere2
+              - frame:
+                  xyz: [0, -0.03, 0.1]
+                  rpy: [0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link4_right_sphere3
+        - name: link5_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0.2]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_right_sphere1
+              - frame:
+                  xyz: [0, 0.06, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_right_sphere2
+              - frame:
+                  xyz: [0, 0.03, 0.1]
+                  rpy: [0.291, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link5_right_sphere3
+        - name: link6_right
+          collision:
+              - frame:
+                  xyz: [0, 0, 0]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_right_sphere1
+              - frame:
+                  xyz: [0, 0.04, 0.19]
+                  rpy: [0, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_right_sphere2
+              - frame:
+                  xyz: [0, 0.02, 0.095]
+                  rpy: [-0.207, 0, 0]
+                geometry:
+                  sphere:
+                      radius: 0.07
+                name: link6_right_sphere3
+        - name: link7_right
+          collision:
+              - frame:
+                  xyz: [0, -0.01, 0]
+                  rpy: [0, 0, 3.1415]
+                geometry:
+                  sphere:
+                      radius: 0.08
+                name: link7_right_sphere
+        - name: end-effector_right
+        - name: pan-tilt_base_plate
+        - name: pan-tilt_link1
+        - name: pan-tilt_link2
+        - name: pan-tilt_mounting_plate
+        - name: kinect2_rgb_sensor
+        # Shadow hand attached to the right arm
+        - name: shadow_link_wrist2
+        - name: shadow_link_wrist1
+        - name: shadow_link_palm
+        - name: shadow_link_thumb5
+        - name: shadow_link_thumb4
+        - name: shadow_link_thumb3
+        - name: shadow_link_thumb2
+        - name: shadow_link_index4
+        - name: shadow_link_index3
+        - name: shadow_link_index2
+        - name: shadow_link_middle4
+        - name: shadow_link_middle3
+        - name: shadow_link_middle2
+        - name: shadow_link_ring4
+        - name: shadow_link_ring3
+        - name: shadow_link_ring2
+        - name: shadow_link_little5
+        - name: shadow_link_little4
+        - name: shadow_link_little3
+        - name: shadow_link_little2
+    joints:
+        -   name: joint_base_left
+            parent: fixed_base
+            child: link1_left
+            type: fixed
+            frame:
+                xyz: [0.1019, 0.1147, 1.4532]
+                rpy: [-90, 15, 180]
+        -   name: joint1_left
+            parent: link1_left
+            child: link2_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.1105]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint2_left
+            parent: link2_left
+            child: link3_left
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint3_left
+            parent: link3_left
+            child: link4_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint4_left
+            parent: link4_left
+            child: link5_left
+            type: revolute
+            axis: [0, 1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint5_left
+            parent: link5_left
+            child: link6_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.75
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint6_left
+            parent: link6_left
+            child: link7_left
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint7_left
+            parent: link7_left
+            child: end-effector_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.078]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint_base_right
+            parent: fixed_base
+            child: link1_right
+            type: fixed
+            frame:
+                xyz: [0.1019, -0.1147, 1.4532]
+                rpy: [90, 15, 180]
+        -   name: joint1_right
+            parent: link1_right
+            child: link2_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.1105]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint2_right
+            parent: link2_right
+            child: link3_right
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint3_right
+            parent: link3_right
+            child: link4_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint4_right
+            parent: link4_right
+            child: link5_right
+            type: revolute
+            axis: [0, 1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint5_right
+            parent: link5_right
+            child: link6_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.75
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint6_right
+            parent: link6_right
+            child: link7_right
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint7_right
+            parent: link7_right
+            child: end-effector_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.078]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: pan-tilt_base
+            parent: fixed_base
+            child: pan-tilt_base_plate
+            type: fixed
+            frame:
+                xyz: [0.1722, 0, 1.5442]
+                rpy: [0, 0, 0]
+        -   name: pan-tilt_pan
+            parent: pan-tilt_base_plate
+            child: pan-tilt_link1
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 159
+                lower: -159
+                anglesInDegrees: true
+        -   name: pan-tilt_tilt
+            parent: pan-tilt_link1
+            child: pan-tilt_link2
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.09169]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 31
+                lower: -47
+                anglesInDegrees: true
+        -   name: pan-tilt_plate
+            parent: pan-tilt_link2
+            child: pan-tilt_mounting_plate
+            type: fixed
+            frame:
+                xyz: [0, 0, 0.03912]
+                rpy: [0, 0, 0]
+        -   name: joint_kinect2_rgb_sensor
+            parent: pan-tilt_mounting_plate
+            child: kinect2_rgb_sensor
+            type: fixed
+            frame:
+                xyz: [-0.003, -0.095, 0.045]
+                rpy: [0, 90, -90]
+        # Shadow hand joints
+        -   name: eef-right_shadow
+            parent: end-effector_right
+            child: shadow_link_wrist2
+            type: fixed
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+        -   name: WRJ2
+            parent: shadow_link_wrist2
+            child: shadow_link_wrist1
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 8
+                lower: -28
+                velocity: 36
+                anglesInDegrees: true
+        -   name: WRJ1
+            parent: shadow_link_wrist1
+            child: shadow_link_palm
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 28
+                lower: -40
+                velocity: 68
+                anglesInDegrees: true
+        -   name: THJ5
+            parent: shadow_link_palm
+            child: shadow_link_thumb5
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 60
+                lower: -60
+                velocity: 120
+                anglesInDegrees: true
+        -   name: THJ4
+            parent: shadow_link_thumb5
+            child: shadow_link_thumb4
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 70
+                lower: 0
+                velocity: 70
+                anglesInDegrees: true
+        -   name: THJ3
+            parent: shadow_link_thumb4
+            child: shadow_link_thumb3
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 12
+                lower: -12
+                velocity: 24
+                anglesInDegrees: true
+        -   name: THJ2
+            parent: shadow_link_thumb3
+            child: shadow_link_thumb2
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 40
+                lower: -40
+                velocity: 80
+                anglesInDegrees: true
+        -   name: FFJ4
+            parent: shadow_link_palm
+            child: shadow_link_index4
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 20
+                lower: -20
+                velocity: 40
+                anglesInDegrees: true
+        -   name: FFJ3
+            parent: shadow_link_index4
+            child: shadow_link_index3
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: FFJ2
+            parent: shadow_link_index3
+            child: shadow_link_index2
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: MFJ4
+            parent: shadow_link_palm
+            child: shadow_link_middle4
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 20
+                lower: -20
+                velocity: 40
+                anglesInDegrees: true
+        -   name: MFJ3
+            parent: shadow_link_middle4
+            child: shadow_link_middle3
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: MFJ2
+            parent: shadow_link_middle3
+            child: shadow_link_middle2
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: RFJ4
+            parent: shadow_link_palm
+            child: shadow_link_ring4
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 20
+                lower: -20
+                velocity: 40
+                anglesInDegrees: true
+        -   name: RFJ3
+            parent: shadow_link_ring4
+            child: shadow_link_ring3
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: RFJ2
+            parent: shadow_link_ring3
+            child: shadow_link_ring2
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: LFJ5
+            parent: shadow_link_palm
+            child: shadow_link_little5
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 45
+                lower: 0
+                velocity: 45
+                anglesInDegrees: true
+        -   name: LFJ4
+            parent: shadow_link_little5
+            child: shadow_link_little4
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 20
+                lower: -20
+                velocity: 40
+                anglesInDegrees: true
+        -   name: LFJ3
+            parent: shadow_link_little4
+            child: shadow_link_little3
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true
+        -   name: LFJ2
+            parent: shadow_link_little3
+            child: shadow_link_little2
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 90
+                lower: 0
+                velocity: 90
+                anglesInDegrees: true

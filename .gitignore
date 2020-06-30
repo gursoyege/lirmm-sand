@@ -3,3 +3,12 @@
 __pycache__
 backup
 .DS_Store
+*~
+*.old
+CMakeFiles
+cmake_install.cmake
+Makefile
+CMakeCache.txt
+compile_commands.json
+.ccls-cache
+

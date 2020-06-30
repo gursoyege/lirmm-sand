@@ -1,0 +1,22 @@
+robot:
+    joint_groups:
+      -   name: right_arm
+          control_space: task_space
+      -   name: shadow_hand
+          control_space: joint_space
+          goal:
+              position: [0, -0.094584234058857, 0.36449909210205, 1.1339440345764, 0.15299597382545, 0.18776920437813, 0, 0.18716280162334, 0, 0, 1.5470459461212, 1.45148396492, 0, 1.5471900701523, 1.4561479091644, 0, 0.00084985780995339, 1.5471456050873, 1.467090845108]
+
+    control_points:
+      -   name: tcp_right
+          # Possible values : 'none', 'pos', 'force', 'damp' or 'adm'
+          control_mode: [pos, pos, pos, pos, pos, pos]
+          goal:
+              pose: [0.86034560203552, -0.53592163324356, 1.5361878871918, -3.14, 0, 0] #TL
+              #pose: [0.86034560203552, -0.83592163324356, 1.5361878871918, -3.14, 0, 0] #TR
+              #pose: [0.56034560203552, -0.53592163324356, 1.5361878871918, -3.14, 0, 0] #BL
+              #pose: [0.56034560203552, -0.83592163324356, 1.5361878871918, -3.14, 0, 0] #BR
+
+joint_space_otgs:
+    -     joint_group: shadow_hand
+          control_mode: Position

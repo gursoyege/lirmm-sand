@@ -1,0 +1,1 @@
+include(sand_manipulation_app/sand_manipulation_app.cmake)
