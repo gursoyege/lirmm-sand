@@ -6,11 +6,11 @@ Example branch is the result of the executed Master branch which contains the ou
 
 ## Prerequisites
 
-What things you need to install the software and how to install them
 
 ```
 python v3.6 (or greater) 
 opencv v4.0 (not tested on other versions)
+tensorflow v2.2 (or greater)
 numpy
 lxml
 ```
