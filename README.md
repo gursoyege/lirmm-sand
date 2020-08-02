@@ -17,7 +17,7 @@ lxml
 Pre-trained autoencoder models can be downloaded using the link below :
 https://drive.google.com/drive/folders/1wFcAK3vQsCxJlVXmctJZ1VLBryqJQRUi?usp=sharing
 
-"model" folder should be placed under :
+Downloaded "model" folder should be placed under :
 ```
 decision_tree/resources/
 ```
