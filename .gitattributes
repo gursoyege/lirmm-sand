@@ -1,2 +1,6 @@
 *.data-00000-of-00002 filter=lfs diff=lfs merge=lfs -text
 *.data-00001-of-00002 filter=lfs diff=lfs merge=lfs -text
+decision_tree/resource/model/poke/variables/variables.data-00000-of-00002 filter=lfs diff=lfs merge=lfs -text
+decision_tree/resource/model/poke/variables/variables.data-00001-of-00002 filter=lfs diff=lfs merge=lfs -text
+decision_tree/resource/model/tap/variables/variables.data-00001-of-00002 filter=lfs diff=lfs merge=lfs -text
+decision_tree/resource/model/tap/variables/variables.data-00000-of-00002 filter=lfs diff=lfs merge=lfs -text
