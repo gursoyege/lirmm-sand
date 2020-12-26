@@ -1,7 +1,8 @@
 # LIRMM-sand
 
 Sand manipulation project.
-Please check the project report in the directory "/lirmm-sand_report.pdf" for more detailed explanaiton.
+
+**Please check the [project report](https://github.com/gursoyege/lirmm-sand/blob/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
 
 ## Prerequisites
 
