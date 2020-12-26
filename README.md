@@ -1,7 +1,5 @@
 # LIRMM-sand
 
-Sand manipulation project.
-
 **Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
 
 ## Prerequisites
