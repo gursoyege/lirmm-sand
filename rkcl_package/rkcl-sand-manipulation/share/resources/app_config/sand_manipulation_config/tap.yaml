@@ -1,0 +1,15 @@
+app:
+    task_execution_order: [0, 1, 2, 3, 4, 3]
+    task_config_files:
+      - name: app_config/sand_manipulation_config/action/tap/action1.yaml
+      - name: app_config/sand_manipulation_config/action/tap/action2.yaml
+      - name: app_config/sand_manipulation_config/action/tap/action3.yaml
+      - name: app_config/sand_manipulation_config/action/tap/action4.yaml
+      - name: app_config/sand_manipulation_config/home.yaml
+    nb_samples: [4, 2]
+
+
+robot:
+    control_points:
+      -   name: hand_tcp
+          body_name: lh_manipulator

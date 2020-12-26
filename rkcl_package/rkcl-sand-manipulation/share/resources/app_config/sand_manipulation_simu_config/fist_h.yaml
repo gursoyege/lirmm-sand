@@ -1,0 +1,13 @@
+app:
+    task_config_files:
+      - name: app_config/sand_manipulation_simu_config/home.yaml
+      - name: app_config/sand_manipulation_simu_config/action/fist_h/action1.yaml
+      - name: app_config/sand_manipulation_simu_config/action/fist_h/action2.yaml
+      - name: app_config/sand_manipulation_simu_config/action/fist_h/action3.yaml
+    nb_samples: [4, 2]
+
+
+robot:
+    control_points:
+      -   name: hand_tcp
+          body_name: rh_manipulator

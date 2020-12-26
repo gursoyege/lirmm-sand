@@ -1,0 +1,4 @@
+# Reference pose = sand area bottom left corner
+reference_position: [-0.110362,  0.927176,   1.00935]
+reference_quaternion: [  -0,          0, -0.0335377,   0.999437]
+dimension: [0.58, 0.39]

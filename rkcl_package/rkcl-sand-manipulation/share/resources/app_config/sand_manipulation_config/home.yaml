@@ -1,0 +1,16 @@
+robot:
+    joint_groups:
+      -   name: arm
+          control_space: joint_space
+          goal:
+              position: [1.57, -1.57, 0, -1.57, 0, 1.2, 0]
+      -   name: shadow_hand
+          control_space: joint_space
+          goal:
+              position: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+joint_space_otgs:
+    -   joint_group: arm
+        control_mode: Position
+    -   joint_group: shadow_hand
+        control_mode: Position

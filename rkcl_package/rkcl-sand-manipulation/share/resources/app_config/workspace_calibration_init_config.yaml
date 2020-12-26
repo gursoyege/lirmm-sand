@@ -1,0 +1,122 @@
+app:
+    task_config_files:
+      - name: app_config/workspace_calibration_config/joint_init.yaml
+      - name: app_config/workspace_calibration_config/task_damping_arm.yaml
+
+robot:
+    control_points:
+      -   name: tcp
+          # task_priority: 1 #Decreasing priority level
+          body_name: end-effector_left
+        #   ref_body_name: fixed_base
+          limits:
+              max_velocity: [1, 1, 1, 1, 1, 1]
+              max_acceleration: [1, 1, 1, 1, 1, 1]
+          gains:
+              position_control:
+                proportional: [1, 1, 1, 1, 1, 1]
+              admittance_control:
+                stiffness: [250, 250, 250, 25, 25, 25]
+                damping: [150, 150, 150, 40, 40, 40]
+
+    observation_points:
+      -   name: shadow_index_tip
+          body_name: lh_fftip
+      -   name: shadow_thumb_tip
+          body_name: lh_thtip
+
+    joint_groups:
+      -   name: arm
+          priority: 1
+          joints: [joint1_left, joint2_left, joint3_left, joint4_left, joint5_left, joint6_left, joint7_left]
+          control_time_step: 0.005
+          selection_matrix: [1, 1, 1, 1, 1, 1, 1]
+          limits:
+              max_velocity: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+              max_acceleration: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+      -   name: shadow_hand
+          joints: [lh_FFJ4,lh_FFJ3,lh_FFJ2,lh_MFJ4,lh_MFJ3,lh_MFJ2,lh_RFJ4,lh_RFJ3,lh_RFJ2,lh_LFJ5,lh_LFJ4,lh_LFJ3,lh_LFJ2,lh_THJ5,lh_THJ4,lh_THJ3,lh_THJ2,lh_WRJ2,lh_WRJ1]
+          control_time_step: 0.005 #0.001
+          limits:
+              max_acceleration: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+
+joint_space_otgs:
+    -     joint_group: arm
+          input_data: Hybrid #Hybrid #PreviousOutput #CurrentState
+          hybrid_input_factor: 10
+    -     joint_group: shadow_hand
+          input_data: Hybrid #Hybrid #PreviousOutput #CurrentState
+          hybrid_input_factor: 10
+
+task_space_controller:
+    wrench_measure_enabled: true
+    control_time_step: 0.005
+
+tcp_wrench_estimator:
+    point_name: tcp
+    force_deadband: [5, 5, 5]
+    torque_deadband: [2, 2, 2]
+
+ik_controller:
+    IK_type: StandardQP
+    QP_solver:
+      type: osqp
+      verbose: false
+      check_termination: 10
+      eps_abs: 1e-5
+      eps_rel: 1e-5
+
+model:
+    path: app_model/bazar_shadow_left.yaml
+    world_pose: [0, 0, 0, 0, 0, 0]
+
+drivers:
+    # -   type: dummy
+    #     joint_group: arm
+    -   type: fri
+        port: 49938
+        joint_group: arm
+        end-effector_point_name: tcp_arm
+    # -   type: dummy
+    #     joint_group: shadow_hand
+    -   type: shadow
+        joint_group: shadow_hand
+        hand_type: LirmmLeft
+        network_interface: enp129s0f0
+
+# collision_avoidance:
+#   d_activation: 0.05
+#   d_limit: 0.02
+#   damper_factor: 0.1
+#   disable_collisions:
+#     - link: fixed_base
+#       other_links: [link1_left, link2_left, link1_right, link2_right]
+#     - link: link1_left
+#       other_links: [link2_left, link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link2_left
+#       other_links: [link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link3_left
+#       other_links: [link4_left, link5_left, link1_right, link2_right]
+#     - link: link4_left
+#       other_links: [link5_left, link6_left, link7_left]
+#     - link: link5_left
+#       other_links: [link6_left, link7_left]
+#     - link: link6_left
+#       other_links: [link7_left]
+#     - link: link1_right
+#       other_links: [link2_right, link3_right, link4_right]
+#     - link: link2_right
+#       other_links: [link3_right, link4_right]
+#     - link: link3_right
+#       other_links: [link4_right, link5_right]
+#     - link: link4_right
+#       other_links: [link5_right, link6_right, link7_right]
+#     - link: link5_right
+#       other_links: [link6_right, link7_right]
+#     - link: link6_right
+#       other_links: [link7_right]
+
+logger:
+    log_folder: app_log/workspace_calibration_log

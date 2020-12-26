@@ -1,0 +1,1651 @@
+# Collision model for the kuka arm taken from https://github.com/CentroEPiaggio/kuka-lwr/blob/master/lwr_description/model/kuka_lwr.urdf.xacro
+robot:
+  name: BAZAR_SHADOW_LEFT
+  anglesInDegrees: false
+  links:
+        # - name: link1_base
+        # - name: link2_base
+        # - name: link3_base
+    - name: fixed_base
+      collision:
+          - frame:
+                xyz: [0, 0, 0.859]
+                rpy: [0, 0, 0]
+            geometry:
+                superellipsoid:
+                    size: [0.24, 0.255, 0.5] #From Vrep ; WARNING: size is (x/2, y/2, z/2)
+                    epsilon1: 0
+                    epsilon2: 0
+                # box:
+                #     size: [0.48, 0.51, 1] #From Vrep
+            name: fixed_base_box1
+          - frame:
+                xyz: [0, 0, 0.184]
+                rpy: [0, 0, 0]
+            geometry:
+                superellipsoid:
+                    size: [0.425, 0.37, 0.175] #From Vrep ; WARNING: size is (x/2, y/2, z/2)
+                    epsilon1: 0
+                    epsilon2: 0
+                # box:
+                #     size: [0.85, 0.74, 0.35] #From Vrep
+            name: fixed_base_box2
+    - name: link1_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0.055]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link1_left_sphere
+    - name: link2_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_left_sphere1
+          - frame:
+                xyz: [0, 0.06, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_left_sphere2
+          - frame:
+                xyz: [0, 0.03, 0.1]
+                rpy: [-0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_left_sphere3
+    - name: link3_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_left_sphere1
+          - frame:
+                xyz: [0, -0.06, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_left_sphere2
+          - frame:
+                xyz: [0, -0.03, 0.1]
+                rpy: [-0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_left_sphere3
+    - name: link4_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_left_sphere1
+          - frame:
+                xyz: [0, -0.06, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_left_sphere2
+          - frame:
+                xyz: [0, -0.03, 0.1]
+                rpy: [0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_left_sphere3
+    - name: link5_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_left_sphere1
+          - frame:
+                xyz: [0, 0.06, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_left_sphere2
+          - frame:
+                xyz: [0, 0.03, 0.1]
+                rpy: [0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_left_sphere3
+    - name: link6_left
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_left_sphere1
+          - frame:
+                xyz: [0, 0.04, 0.19]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_left_sphere2
+          - frame:
+                xyz: [0, 0.02, 0.095]
+                rpy: [-0.207, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_left_sphere3
+    - name: link7_left
+      collision:
+          - frame:
+                xyz: [0, -0.01, 0]
+                rpy: [0, 0, 3.1415]
+            geometry:
+                sphere:
+                    radius: 0.08
+            name: link7_left_sphere
+    - name: end-effector_left
+    - name: link1_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0.055]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link1_right_sphere
+    - name: link2_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_right_sphere1
+          - frame:
+                xyz: [0, 0.06, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_right_sphere2
+          - frame:
+                xyz: [0, 0.03, 0.1]
+                rpy: [-0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link2_right_sphere3
+    - name: link3_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_right_sphere1
+          - frame:
+                xyz: [0, -0.06, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_right_sphere2
+          - frame:
+                xyz: [0, -0.03, 0.1]
+                rpy: [-0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link3_right_sphere3
+    - name: link4_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_right_sphere1
+          - frame:
+                xyz: [0, -0.06, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_right_sphere2
+          - frame:
+                xyz: [0, -0.03, 0.1]
+                rpy: [0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link4_right_sphere3
+    - name: link5_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_right_sphere1
+          - frame:
+                xyz: [0, 0.06, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_right_sphere2
+          - frame:
+                xyz: [0, 0.03, 0.1]
+                rpy: [0.291, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link5_right_sphere3
+    - name: link6_right
+      collision:
+          - frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_right_sphere1
+          - frame:
+                xyz: [0, 0.04, 0.19]
+                rpy: [0, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_right_sphere2
+          - frame:
+                xyz: [0, 0.02, 0.095]
+                rpy: [-0.207, 0, 0]
+            geometry:
+                sphere:
+                    radius: 0.07
+            name: link6_right_sphere3
+    - name: link7_right
+      collision:
+          - frame:
+                xyz: [0, -0.01, 0]
+                rpy: [0, 0, 3.1415]
+            geometry:
+                sphere:
+                    radius: 0.08
+            name: link7_right_sphere
+    - name: end-effector_right
+    - name: pan-tilt_base_plate
+    - name: pan-tilt_link1
+    - name: pan-tilt_link2
+    - name: pan-tilt_mounting_plate
+    - name: kinect2_rgb_sensor
+        # Shadow hand attached to the left arm
+    - name: lh_forearm
+      inertial:
+        mass: 3
+        frame:
+          xyz: [0, 0, 0.09000000000000001]
+        inertia:
+          Ixx: 0.0138
+          Iyy: 0.0138
+          Izz: 0.00744
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/forearm.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.092]
+          geometry:
+            cylinder:
+              radius: 0.07000000000000001
+              length: 0.184
+        - frame:
+            xyz: [0, -0.01, 0.181]
+            rpy: [-0, 0.78, 0]
+          geometry:
+            box:
+              size: [0.07000000000000001, 0.07000000000000001, 0.07000000000000001]
+    - name: lh_wrist
+      inertial:
+        mass: 0.1
+        frame:
+          xyz: [0, 0, 0.029]
+        inertia:
+          Ixx: 3.5e-05
+          Iyy: 6.400000000000001e-05
+          Izz: 4.38e-05
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/wrist.dae
+              scale: -0.001
+      collision:
+        - frame:
+            rpy: [1.570796326781404, -3.673205103330054e-06, -1.5708]
+          geometry:
+            cylinder:
+              radius: 0.0135
+              length: 0.03
+        - frame:
+            xyz: [0.026, 0, 0.034]
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.011
+              length: 0.01
+        - frame:
+            xyz: [-0.031, 0, 0.034]
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.011
+              length: 0.01
+        - frame:
+            xyz: [0.021, 0, 0.011]
+            rpy: [0, -0.7854, 0]
+          geometry:
+            box:
+              size: [0.027, 0.018, 0.01]
+        - frame:
+            xyz: [-0.026, 0, 0.01]
+            rpy: [-0, 0.7854, 0]
+          geometry:
+            box:
+              size: [0.027, 0.018, 0.01]
+    - name: lh_palm
+      inertial:
+        mass: 0.3
+        frame:
+          xyz: [0, 0, 0.035]
+        inertia:
+          Ixx: 0.0003581
+          Iyy: 0.0005287
+          Izz: 0.000191
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/palm.dae
+              scale: -0.001
+      collision:
+        - frame:
+            xyz: [-0.011, 0.008500000000000001, 0.038]
+          geometry:
+            box:
+              size: [0.062, 0.007, 0.098]
+        - frame:
+            xyz: [0.002, -0.0035, 0.038]
+          geometry:
+            box:
+              size: [0.036, 0.017, 0.098]
+        - frame:
+            xyz: [-0.029, -0.0035, 0.082]
+          geometry:
+            box:
+              size: [0.026, 0.017, 0.01]
+        - frame:
+            xyz: [-0.0265, -0.001, 0.07000000000000001]
+            rpy: [0.1939396013270079, -0.04917139126827497, -0.2452159035548314]
+          geometry:
+            box:
+              size: [0.026, 0.014, 0.018]
+        - frame:
+            xyz: [-0.0315, -0.008500000000000001, 0.001]
+          geometry:
+            box:
+              size: [0.021, 0.027, 0.024]
+        - frame:
+            xyz: [-0.0125, -0.015, 0.008999999999999999]
+            rpy: [-0, 0, 0.48]
+          geometry:
+            box:
+              size: [0.022, 0.005, 0.04]
+        - frame:
+            xyz: [-0.011, 0, 0.089]
+          geometry:
+            box:
+              size: [0.018, 0.024, 0.004]
+        - frame:
+            xyz: [0.03, 0, 0.008999999999999999]
+          geometry:
+            box:
+              size: [0.02, 0.024, 0.04]
+    - name: lh_manipulator
+    - name: lh_imu
+    - name: lh_ffknuckle
+      inertial:
+        mass: 0.008
+        inertia:
+          Ixx: 2.6e-07
+          Iyy: 2.6e-07
+          Izz: 3.2e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            xyz: [0, 0, 0.0005]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/knuckle.dae
+              scale: 0.001
+      collision:
+        - frame:
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.014
+    - name: lh_ffproximal
+      inertial:
+        mass: 0.03
+        frame:
+          xyz: [0, 0, 0.0225]
+        inertia:
+          Ixx: 9.799999999999999e-06
+          Iyy: 1e-05
+          Izz: 1.8e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/F3.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.025]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.04
+    - name: lh_ffmiddle
+      inertial:
+        mass: 0.017
+        frame:
+          xyz: [0, 0, 0.0125]
+        inertia:
+          Ixx: 2.600000000000001e-06
+          Iyy: 2.7e-06
+          Izz: 8.7e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            rpy: [-0, 0, 1.571]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae
+              scale: 1
+      collision:
+        - frame:
+            xyz: [0, 0, 0.005]
+          geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+    - name: lh_ff_J1_dummy
+      inertial:
+        mass: 0.001
+        frame:
+          xyz: [0, 0, 0.012]
+        inertia:
+          Ixx: 1.000000000000001e-08
+          Iyy: 1.000000000000001e-08
+          Izz: 1e-08
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+    - name: lh_fftip
+      inertial:
+        mass: 0.001
+    - name: lh_ffdistal
+      inertial:
+        mass: 0.012
+        frame:
+          xyz: [0, -0.008999999999999999, 0.035]
+        inertia:
+          Ixx: 9.400000000000012e-07
+          Iyy: 1.100000000000001e-06
+          Izz: 5.3e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+      collision:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+    - name: lh_mfknuckle
+      inertial:
+        mass: 0.008
+        inertia:
+          Ixx: 2.6e-07
+          Iyy: 2.6e-07
+          Izz: 3.2e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            xyz: [0, 0, 0.0005]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/knuckle.dae
+              scale: 0.001
+      collision:
+        - frame:
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.014
+    - name: lh_mfproximal
+      inertial:
+        mass: 0.03
+        frame:
+          xyz: [0, 0, 0.0225]
+        inertia:
+          Ixx: 9.799999999999999e-06
+          Iyy: 1e-05
+          Izz: 1.8e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/F3.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.025]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.04
+    - name: lh_mfmiddle
+      inertial:
+        mass: 0.017
+        frame:
+          xyz: [0, 0, 0.0125]
+        inertia:
+          Ixx: 2.600000000000001e-06
+          Iyy: 2.7e-06
+          Izz: 8.7e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            rpy: [-0, 0, 1.571]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae
+              scale: 1
+      collision:
+        - frame:
+            xyz: [0, 0, 0.005]
+          geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+    - name: lh_mf_J1_dummy
+      inertial:
+        mass: 0.001
+        frame:
+          xyz: [0, 0, 0.012]
+        inertia:
+          Ixx: 1.000000000000001e-08
+          Iyy: 1.000000000000001e-08
+          Izz: 1e-08
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+    - name: lh_mftip
+      inertial:
+        mass: 0.001
+    - name: lh_mfdistal
+      inertial:
+        mass: 0.012
+        frame:
+          xyz: [0, -0.008999999999999999, 0.035]
+        inertia:
+          Ixx: 9.400000000000012e-07
+          Iyy: 1.100000000000001e-06
+          Izz: 5.3e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+      collision:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+    - name: lh_rfknuckle
+      inertial:
+        mass: 0.008
+        inertia:
+          Ixx: 2.6e-07
+          Iyy: 2.6e-07
+          Izz: 3.2e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            xyz: [0, 0, 0.0005]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/knuckle.dae
+              scale: 0.001
+      collision:
+        - frame:
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.014
+    - name: lh_rfproximal
+      inertial:
+        mass: 0.03
+        frame:
+          xyz: [0, 0, 0.0225]
+        inertia:
+          Ixx: 9.799999999999999e-06
+          Iyy: 1e-05
+          Izz: 1.8e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/F3.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.025]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.04
+    - name: lh_rfmiddle
+      inertial:
+        mass: 0.017
+        frame:
+          xyz: [0, 0, 0.0125]
+        inertia:
+          Ixx: 2.600000000000001e-06
+          Iyy: 2.7e-06
+          Izz: 8.7e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            rpy: [-0, 0, 1.571]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae
+              scale: 1
+      collision:
+        - frame:
+            xyz: [0, 0, 0.005]
+          geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+    - name: lh_rf_J1_dummy
+      inertial:
+        mass: 0.001
+        frame:
+          xyz: [0, 0, 0.012]
+        inertia:
+          Ixx: 1.000000000000001e-08
+          Iyy: 1.000000000000001e-08
+          Izz: 1e-08
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+    - name: lh_rftip
+      inertial:
+        mass: 0.001
+    - name: lh_rfdistal
+      inertial:
+        mass: 0.012
+        frame:
+          xyz: [0, -0.008999999999999999, 0.035]
+        inertia:
+          Ixx: 9.400000000000012e-07
+          Iyy: 1.100000000000001e-06
+          Izz: 5.3e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+      collision:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+    - name: lh_lfmetacarpal
+      inertial:
+        mass: 0.03
+        frame:
+          xyz: [0, 0, 0.04]
+        inertia:
+          Ixx: 1.450000000000001e-05
+          Iyy: 1.638e-05
+          Izz: 4.272e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/lfmetacarpal.dae
+              scale: -0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.038]
+          geometry:
+            box:
+              size: [0.018, 0.024, 0.04]
+    - name: lh_lfknuckle
+      inertial:
+        mass: 0.008
+        inertia:
+          Ixx: 2.6e-07
+          Iyy: 2.6e-07
+          Izz: 3.2e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            xyz: [0, 0, 0.0005]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/knuckle.dae
+              scale: 0.001
+      collision:
+        - frame:
+            rpy: [-0, 1.5708, -0]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.014
+    - name: lh_lfproximal
+      inertial:
+        mass: 0.03
+        frame:
+          xyz: [0, 0, 0.0225]
+        inertia:
+          Ixx: 9.799999999999999e-06
+          Iyy: 1e-05
+          Izz: 1.8e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/F3.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.025]
+          geometry:
+            cylinder:
+              radius: 0.007
+              length: 0.04
+    - name: lh_lfmiddle
+      inertial:
+        mass: 0.017
+        frame:
+          xyz: [0, 0, 0.0125]
+        inertia:
+          Ixx: 2.600000000000001e-06
+          Iyy: 2.7e-06
+          Izz: 8.7e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - frame:
+            rpy: [-0, 0, 1.571]
+          geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae
+              scale: 1
+      collision:
+        - frame:
+            xyz: [0, 0, 0.005]
+          geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+    - name: lh_lf_J1_dummy
+      inertial:
+        mass: 0.001
+        frame:
+          xyz: [0, 0, 0.012]
+        inertia:
+          Ixx: 1.000000000000001e-08
+          Iyy: 1.000000000000001e-08
+          Izz: 1e-08
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+    - name: lh_lftip
+      inertial:
+        mass: 0.001
+    - name: lh_lfdistal
+      inertial:
+        mass: 0.012
+        frame:
+          xyz: [0, -0.008999999999999999, 0.035]
+        inertia:
+          Ixx: 9.400000000000012e-07
+          Iyy: 1.100000000000001e-06
+          Izz: 5.3e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+      collision:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+    - name: lh_thbase
+      inertial:
+        mass: 0.01
+        inertia:
+          Ixx: 1.6e-07
+          Iyy: 1.6e-07
+          Izz: 1.6e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+      collision:
+        - geometry:
+            sphere:
+              radius: 0.011
+    - name: lh_thproximal
+      inertial:
+        mass: 0.04
+        frame:
+          xyz: [0, 0, 0.019]
+        inertia:
+          Ixx: 1.36e-05
+          Iyy: 1.36e-05
+          Izz: 3.13e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/TH3_z.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.02]
+          geometry:
+            cylinder:
+              radius: 0.012
+              length: 0.018
+    - name: lh_thhub
+      inertial:
+        mass: 0.005
+        inertia:
+          Ixx: 1e-06
+          Iyy: 1e-06
+          Izz: 3e-07
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+      collision:
+        - geometry:
+            sphere:
+              radius: 0.01
+    - name: lh_thmiddle
+      inertial:
+        mass: 0.02
+        frame:
+          xyz: [0, 0, 0.016]
+        inertia:
+          Ixx: 5.1e-06
+          Iyy: 5.1e-06
+          Izz: 1.21e-06
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_thumb_adapter.dae
+              scale: 0.001
+      collision:
+        - frame:
+            xyz: [0, 0, 0.005]
+          geometry:
+            box:
+              size: [0.001, 0.001, 0.001]
+    - name: lh_thdistal_J1_dummy
+      inertial:
+        mass: 0.001
+        inertia:
+          Ixx: 1e-08
+          Iyy: 1e-08
+          Izz: 1e-08
+          Iyz: 0
+          Ixz: 0
+          Ixy: 0
+    - name: lh_thtip
+      inertial:
+        mass: 0.001
+    - name: lh_thdistal
+      inertial:
+        mass: 0.008
+        frame:
+          xyz: [-0.008999999999999999, 0, 0.035]
+        inertia:
+          Ixx: 1.747999999999999e-06
+          Iyy: 4.520000000000001e-07
+          Izz: 4.999999999999999e-07
+          Iyz: 2.52e-06
+          Ixz: -2.51999999998766e-06
+          Ixy: -3.172989581375087e-18
+      visual:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+      collision:
+        - geometry:
+            mesh:
+              filename: package://sr_description/hand/model/biotacs/biotac_decimated.dae
+              scale: 0.0254
+  joints:
+        -   name: joint_base_left
+            parent: fixed_base
+            child: link1_left
+            type: fixed
+            frame:
+                xyz: [0.1019, 0.1147, 1.4532]
+                rpy: [-90, 15, 180]
+                anglesInDegrees: true
+        -   name: joint1_left
+            parent: link1_left
+            child: link2_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.1105]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint2_left
+            parent: link2_left
+            child: link3_left
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint3_left
+            parent: link3_left
+            child: link4_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint4_left
+            parent: link4_left
+            child: link5_left
+            type: revolute
+            axis: [0, 1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint5_left
+            parent: link5_left
+            child: link6_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.75
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint6_left
+            parent: link6_left
+            child: link7_left
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint7_left
+            parent: link7_left
+            child: end-effector_left
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.078]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint_base_right
+            parent: fixed_base
+            child: link1_right
+            type: fixed
+            frame:
+                xyz: [0.1019, -0.1147, 1.4532]
+                rpy: [90, 15, 180]
+                anglesInDegrees: true
+        -   name: joint1_right
+            parent: link1_right
+            child: link2_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.1105]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint2_right
+            parent: link2_right
+            child: link3_right
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 2.3
+                effort: 176
+                anglesInDegrees: false
+        -   name: joint3_right
+            parent: link3_right
+            child: link4_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint4_right
+            parent: link4_right
+            child: link5_right
+            type: revolute
+            axis: [0, 1, 0]
+            frame:
+                xyz: [0, 0, 0.2]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 3.07
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint5_right
+            parent: link5_right
+            child: link6_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.75
+                effort: 100
+                anglesInDegrees: false
+        -   name: joint6_right
+            parent: link6_right
+            child: link7_right
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.195]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.0943
+                lower: -2.0943
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: joint7_right
+            parent: link7_right
+            child: end-effector_right
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0.078]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 2.9670
+                lower: -2.9670
+                velocity: 4.22
+                effort: 30
+                anglesInDegrees: false
+        -   name: pan-tilt_base
+            parent: fixed_base
+            child: pan-tilt_base_plate
+            type: fixed
+            frame:
+                xyz: [0.1722, 0, 1.5442]
+                rpy: [0, 0, 0]
+        -   name: pan-tilt_pan
+            parent: pan-tilt_base_plate
+            child: pan-tilt_link1
+            type: revolute
+            axis: [0, 0, 1]
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 159
+                lower: -159
+                anglesInDegrees: true
+        -   name: pan-tilt_tilt
+            parent: pan-tilt_link1
+            child: pan-tilt_link2
+            type: revolute
+            axis: [0, -1, 0]
+            frame:
+                xyz: [0, 0, 0.09169]
+                rpy: [0, 0, 0]
+            limits:
+                upper: 31
+                lower: -47
+                anglesInDegrees: true
+        -   name: pan-tilt_plate
+            parent: pan-tilt_link2
+            child: pan-tilt_mounting_plate
+            type: fixed
+            frame:
+                xyz: [0, 0, 0.03912]
+                rpy: [0, 0, 0]
+        -   name: joint_kinect2_rgb_sensor
+            parent: pan-tilt_mounting_plate
+            child: kinect2_rgb_sensor
+            type: fixed
+            frame:
+                xyz: [-0.003, -0.095, 0.045]
+                rpy: [0, 90, -90]
+                anglesInDegrees: true
+        # Shadow hand joints
+        -   name: eef-left_shadow
+            parent: end-effector_left
+            child: lh_forearm
+            type: fixed
+            frame:
+                xyz: [0, 0, 0]
+                rpy: [0, 0, -90]
+                anglesInDegrees: true
+        -   name: lh_WRJ2
+            type: revolute
+            parent: lh_forearm
+            child: lh_wrist
+            frame:
+                xyz: [0, -0.01, 0.213]
+            axis: [0, -1, 0]
+            limits:
+                lower: -0.5235987755980001
+                upper: 0.174532925199
+                velocity: 2
+                effort: 10
+        -   name: lh_WRJ1
+            type: revolute
+            parent: lh_wrist
+            child: lh_palm
+            frame:
+                xyz: [0, 0, 0.034]
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.698131700798
+                upper: 0.488692190558
+                velocity: 2
+                effort: 30
+        -   name: lh_ee_fixed_joint
+            type: fixed
+            parent: lh_palm
+            child: lh_manipulator
+            frame:
+                xyz: [0, 0, 0.05]
+        -   name: lh_palm_to_imu
+            type: fixed
+            parent: lh_palm
+            child: lh_imu
+            frame:
+                xyz: [0.01785, 0.00765, 0.049125]
+                rpy: [1.5707963, 3.141592653589776, -6.535897930762882e-07]
+        -   name: lh_FFJ4
+            type: revolute
+            parent: lh_palm
+            child: lh_ffknuckle
+            frame:
+                xyz: [-0.033, 0, 0.095]
+            axis: [0, 1, 0]
+            limits:
+                lower: -0.349065850399
+                upper: 0.349065850399
+                velocity: 2
+                effort: 2
+        -   name: lh_FFJ3
+            type: revolute
+            parent: lh_ffknuckle
+            child: lh_ffproximal
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.261799387799
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_FFJ2
+            type: revolute
+            parent: lh_ffproximal
+            child: lh_ffmiddle
+            frame:
+                xyz: [0, 0, 0.045]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_FFJ1
+            type: revolute
+            parent: lh_ffmiddle
+            child: lh_ff_J1_dummy
+            frame:
+                xyz: [0, 0, 0.02]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0.349065850399
+                upper: 0.350811179651
+                velocity: 2
+                effort: 0
+        -   name: lh_FFtip
+            type: fixed
+            parent: lh_ff_J1_dummy
+            child: lh_fftip
+            frame:
+                xyz: [0, 0.004, 0.029]
+        -   name: lh_FF_distal_joint
+            type: fixed
+            parent: lh_ffmiddle
+            child: lh_ffdistal
+            frame:
+                xyz: [0, 0, 0.008]
+        -   name: lh_MFJ4
+            type: revolute
+            parent: lh_palm
+            child: lh_mfknuckle
+            frame:
+                xyz: [-0.011, 0, 0.099]
+            axis: [0, 1, 0]
+            limits:
+                lower: -0.349065850399
+                upper: 0.349065850399
+                velocity: 2
+                effort: 2
+        -   name: lh_MFJ3
+            type: revolute
+            parent: lh_mfknuckle
+            child: lh_mfproximal
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.261799387799
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_MFJ2
+            type: revolute
+            parent: lh_mfproximal
+            child: lh_mfmiddle
+            frame:
+                xyz: [0, 0, 0.045]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_MFJ1
+            type: revolute
+            parent: lh_mfmiddle
+            child: lh_mf_J1_dummy
+            frame:
+                xyz: [0, 0, 0.02]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0.349065850399
+                upper: 0.350811179651
+                velocity: 2
+                effort: 0
+        -   name: lh_MFtip
+            type: fixed
+            parent: lh_mf_J1_dummy
+            child: lh_mftip
+            frame:
+                xyz: [0, 0.004, 0.029]
+        -   name: lh_MF_distal_joint
+            type: fixed
+            parent: lh_mfmiddle
+            child: lh_mfdistal
+            frame:
+                xyz: [0, 0, 0.008]
+        -   name: lh_RFJ4
+            type: revolute
+            parent: lh_palm
+            child: lh_rfknuckle
+            frame:
+                xyz: [0.011, 0, 0.095]
+            axis: [0, -1, 0]
+            limits:
+                lower: -0.349065850399
+                upper: 0.349065850399
+                velocity: 2
+                effort: 2
+        -   name: lh_RFJ3
+            type: revolute
+            parent: lh_rfknuckle
+            child: lh_rfproximal
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.261799387799
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_RFJ2
+            type: revolute
+            parent: lh_rfproximal
+            child: lh_rfmiddle
+            frame:
+                xyz: [0, 0, 0.045]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_RFJ1
+            type: revolute
+            parent: lh_rfmiddle
+            child: lh_rf_J1_dummy
+            frame:
+                xyz: [0, 0, 0.02]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0.349065850399
+                upper: 0.350811179651
+                velocity: 2
+                effort: 0
+        -   name: lh_RFtip
+            type: fixed
+            parent: lh_rf_J1_dummy
+            child: lh_rftip
+            frame:
+                xyz: [0, 0.004, 0.029]
+        -   name: lh_RF_distal_joint
+            type: fixed
+            parent: lh_rfmiddle
+            child: lh_rfdistal
+            frame:
+                xyz: [0, 0, 0.008]
+        -   name: lh_LFJ5
+            type: revolute
+            parent: lh_palm
+            child: lh_lfmetacarpal
+            frame:
+                xyz: [0.033, 0, 0.02071]
+            axis: [0.5735764362512723, 0, -0.8191520443588541]
+            limits:
+                lower: 0
+                upper: 0.785398163397
+                velocity: 2
+                effort: 2
+        -   name: lh_LFJ4
+            type: revolute
+            parent: lh_lfmetacarpal
+            child: lh_lfknuckle
+            frame:
+                xyz: [0, 0, 0.06579]
+            axis: [0, -1, 0]
+            limits:
+                lower: -0.349065850399
+                upper: 0.349065850399
+                velocity: 2
+                effort: 2
+        -   name: lh_LFJ3
+            type: revolute
+            parent: lh_lfknuckle
+            child: lh_lfproximal
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.261799387799
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_LFJ2
+            type: revolute
+            parent: lh_lfproximal
+            child: lh_lfmiddle
+            frame:
+                xyz: [0, 0, 0.045]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0
+                upper: 1.57079632679
+                velocity: 2
+                effort: 2
+        -   name: lh_LFJ1
+            type: revolute
+            parent: lh_lfmiddle
+            child: lh_lf_J1_dummy
+            frame:
+                xyz: [0, 0, 0.02]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0.349065850399
+                upper: 0.350811179651
+                velocity: 2
+                effort: 0
+        -   name: lh_LFtip
+            type: fixed
+            parent: lh_lf_J1_dummy
+            child: lh_lftip
+            frame:
+                xyz: [0, 0.004, 0.029]
+        -   name: lh_LF_distal_joint
+            type: fixed
+            parent: lh_lfmiddle
+            child: lh_lfdistal
+            frame:
+                xyz: [0, 0, 0.008]
+        -   name: lh_THJ5
+            type: revolute
+            parent: lh_palm
+            child: lh_thbase
+            frame:
+                xyz: [-0.034, -0.008500000000000001, 0.029]
+                rpy: [2.06823107110029e-13, -0.785398163397, -3.141592653589501]
+            axis: [0, 0, 1]
+            limits:
+                lower: -1.0471975512
+                upper: 1.0471975512
+                velocity: 4
+                effort: 5
+        -   name: lh_THJ4
+            type: revolute
+            parent: lh_thbase
+            child: lh_thproximal
+            axis: [-1, 0, 0]
+            limits:
+                lower: 0
+                upper: 1.2217304764
+                velocity: 4
+                effort: 3
+        -   name: lh_THJ3
+            type: revolute
+            parent: lh_thproximal
+            child: lh_thhub
+            frame:
+                xyz: [0, 0, 0.038]
+            axis: [1, 0, 0]
+            limits:
+                lower: -0.209439510239
+                upper: 0.209439510239
+                velocity: 4
+                effort: 2
+        -   name: lh_THJ2
+            type: revolute
+            parent: lh_thhub
+            child: lh_thmiddle
+            frame:
+                xyz: [0, 0, 0.01]
+            axis: [0, -1, 0]
+            limits:
+                lower: -0.698131700798
+                upper: 0.698131700798
+                velocity: 2
+                effort: 2
+        -   name: lh_THJ1
+            type: revolute
+            parent: lh_thmiddle
+            child: lh_thdistal_J1_dummy
+            frame:
+                xyz: [0, 0, 0.02]
+                rpy: [0, 0, -1.57079632679]
+            axis: [1, 0, 0]
+            limits:
+                lower: 0.349065850399
+                upper: 0.350811179651
+                velocity: 2
+                effort: 0
+        -   name: lh_thtip
+            type: fixed
+            parent: lh_thdistal_J1_dummy
+            child: lh_thtip
+            frame:
+                xyz: [0, 0.004, 0.032]
+        -   name: lh_th_distal_joint
+            type: fixed
+            parent: lh_thmiddle
+            child: lh_thdistal
+            frame:
+                xyz: [0, 0, 0.01]
+                rpy: [0, 0, -1.57079632679]

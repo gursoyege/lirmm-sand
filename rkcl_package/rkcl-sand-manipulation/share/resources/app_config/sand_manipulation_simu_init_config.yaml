@@ -1,0 +1,116 @@
+# Configure the app
+app:
+    actions: ["fist_0", "fist_30", "fist_h", "grasp", "poke"]
+# Configure the robot
+robot:
+    # Create robot control points
+    control_points:
+      -   name: hand_tcp
+          body_name: rh_manipulator #Attach the control point to the right shadow hand. 'rh_manipulator' is defined in the robot model
+        #   ref_body_name: fixed_base #We don't specify a 'ref_body_name' meaning that the world frame is taken as default
+          limits: #limits used by the trajectory generator to constrain the motion of the CP. We take big values in simu to increase the speed
+              max_velocity: [5, 5, 5, 5, 5, 5]
+              max_acceleration: [5, 5, 5, 5, 5, 5]
+          gains:
+              position_control:
+                proportional: [10, 10, 10, 10, 10, 10] #We use a proportional gain to compensate for the tracking error
+
+    # Create robot joint groups. A joint group usually refers to one robot in multi-robots systems
+    joint_groups:
+      -   name: arm
+          # Name of the joints included in this joint group. They should match the name of the joints defined in the robot model
+          joints: [joint1_right, joint2_right, joint3_right, joint4_right, joint5_right, joint6_right, joint7_right]
+          control_time_step: 0.005 #Control rate (in seconds) for this group
+          limits: #Constraints taken into account in the generation of joint commands.  We take big values in simu to increase the speed
+              max_velocity: [10, 10, 10, 10, 10, 10, 10]
+              max_acceleration: [10, 10, 10, 10, 10, 10, 10]
+      -   name: shadow_hand
+          joints: [rh_FFJ4,rh_FFJ3,rh_FFJ2,rh_MFJ4,rh_MFJ3,rh_MFJ2,rh_RFJ4,rh_RFJ3,rh_RFJ2,rh_LFJ5,rh_LFJ4,rh_LFJ3,rh_LFJ2,rh_THJ5,rh_THJ4,rh_THJ3,rh_THJ2,rh_WRJ2,rh_WRJ1]
+          control_time_step: 0.005
+          limits:
+              max_velocity: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+              max_acceleration: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+
+# Create joint space trajectory generators for each group: they are used to manage the motion of the joints when the group is joint controlled
+joint_space_otgs:
+    -     joint_group: arm
+          input_data: PreviousOutput #Means that the trajectory generation is open loop
+    -     joint_group: shadow_hand
+          input_data: PreviousOutput
+
+# The task space controller refers to the main controller loop which manages : forward kinematics, admittance control of control points, inverse kinematics
+task_space_controller:
+    wrench_measure_enabled: false #We don't use force/torque data to control the robot
+    control_time_step: 0.005 #control rate (in seconds) for the controller. Should be equal to the min joint group control time step for better perf
+
+# Inverse kinematics controller configuration. Don't bother with that for now.
+ik_controller:
+    IK_type: StandardQP
+    QP_solver:
+      type: osqp
+      verbose: false
+      check_termination: 10
+      eps_abs: 1e-5
+      eps_rel: 1e-5
+
+# Robot model specification. This model is used by the forward kinematics component to compute the pose of control/observation points and the Jacobian
+# matrices used by the IK controller.
+model:
+    path: app_model/bazar_shadow_right.yaml #Path to the model file. Should be a .yaml or .urdf. Here the file is taken from rkcl-bazar-robot package.
+    world_pose: [0, 0, 0, 0, 0, 0] #Pose of the root joint of the robot (from the model) with respect to the world frame
+
+#Define the different drivers used in the app. For the real scenario these drivers should be replaced by the robot real drivers.
+drivers:
+    -   type: vrep_main  #vrep main driver used to manage the communication with vrep
+        cycle_time: 0.005
+        port: -1
+    -   type: vrep_joint #vrep joint driver for the right arm
+        joint_group: arm
+        control_mode: Position #we send joint position commands to the robot
+        is_dynamic: false
+        #Names of the joint in the vrep scene
+        joint_names: [LBR4p_joint1, LBR4p_joint2, LBR4p_joint3, LBR4p_joint4, LBR4p_joint5, LBR4p_joint6, LBR4p_joint7]
+    -   type: vrep_joint #vrep joint driver for the hadow hand
+        joint_group: shadow_hand
+        control_mode: Position #we send joint position commands to the robot
+        is_dynamic: false
+        #Names of the joint in the vrep scene
+        joint_names: [FFJ4,FFJ3,FFJ2,MFJ4,MFJ3,MFJ2,RFJ4,RFJ3,RFJ2,LFJ5,LFJ4,LFJ3,LFJ2,THJ5,THJ4,THJ3,THJ2,WRJ2,WRJ1]
+
+# Not used for the moment
+
+# collision_avoidance:
+#   d_activation: 0.05
+#   d_limit: 0.02
+#   damper_factor: 0.1
+#   disable_collisions:
+#     - link: fixed_base
+#       other_links: [link1_left, link2_left, link1_right, link2_right]
+#     - link: link1_left
+#       other_links: [link2_left, link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link2_left
+#       other_links: [link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link3_left
+#       other_links: [link4_left, link5_left, link1_right, link2_right]
+#     - link: link4_left
+#       other_links: [link5_left, link6_left, link7_left]
+#     - link: link5_left
+#       other_links: [link6_left, link7_left]
+#     - link: link6_left
+#       other_links: [link7_left]
+#     - link: link1_right
+#       other_links: [link2_right, link3_right, link4_right]
+#     - link: link2_right
+#       other_links: [link3_right, link4_right]
+#     - link: link3_right
+#       other_links: [link4_right, link5_right]
+#     - link: link4_right
+#       other_links: [link5_right, link6_right, link7_right]
+#     - link: link5_right
+#       other_links: [link6_right, link7_right]
+#     - link: link6_right
+#       other_links: [link7_right]
+
+# Specify the location where log files should be stored
+logger:
+    log_folder: app_log/sand_manipulation_simu_log

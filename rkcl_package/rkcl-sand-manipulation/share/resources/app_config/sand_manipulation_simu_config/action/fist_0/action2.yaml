@@ -1,0 +1,20 @@
+robot:
+    joint_groups:
+      -   name: arm
+          control_space: task_space
+      -   name: shadow_hand
+          control_space: joint_space
+          goal:
+              position: [0, 1.57, 1.57, 0, 1.57, 1.57, 0, 1.57, 1.57, 0, 0, 1.57, 1.57, 0, 0, -0.2, 0.69, 0, -0.69]
+
+    control_points:
+      -   name: hand_tcp
+          control_mode: [pos, pos, pos, pos, pos, pos]
+          goal:
+            apply_transform:
+                transform: [0, 0, -0.05, 0, 0, 0]
+                reference_frame: point_reference
+
+joint_space_otgs:
+    -     joint_group: shadow_hand
+          control_mode: Position

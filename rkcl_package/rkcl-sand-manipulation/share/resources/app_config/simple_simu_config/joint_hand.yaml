@@ -1,0 +1,16 @@
+robot:
+    joint_groups:
+      -   name: right_arm
+          control_space: joint_space
+          goal:
+              velocity: [0, 0, 0, 0, 0, 0, 0]
+      -   name: shadow_hand
+          control_space: joint_space
+          goal:
+              position: [0,0,0.34,1.13,0,0.17,0,0.17,0,0,1.57,1.44,0,1.57,1.44,0,0,1.57,1.44]
+
+joint_space_otgs:
+    -     joint_group: right_arm
+          control_mode: Velocity
+    -     joint_group: shadow_hand
+          control_mode: Position

@@ -1,1 +1,6 @@
-include(sand_manipulation_app/sand_manipulation_app.cmake)
+include(sand_manipulation_simu_app/sand_manipulation_simu_app.cmake)
+include(simple_simu_app/simple_simu_app.cmake)
+if(REAL_ROBOT)
+    include(sand_manipulation_app/sand_manipulation_app.cmake)
+    include(workspace_calibration/workspace_calibration.cmake)
+endif()

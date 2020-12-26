@@ -1,0 +1,105 @@
+app:
+    task_config_files:
+      - name: app_config/simple_simu_config/joint_init.yaml
+      - name: app_config/simple_simu_config/task_arm.yaml
+      - name: app_config/simple_simu_config/joint_hand.yaml
+
+robot:
+    control_points:
+      -   name: hand_tcp
+          body_name: rh_manipulator
+        #   ref_body_name: fixed_base
+          limits:
+              max_velocity: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+              max_acceleration: [0.2, 0.2, 0.2, 0.2, 0.2, 0.2]
+          gains:
+              position_control:
+                proportional: [1, 1, 1, 1, 1, 1]
+
+    joint_groups:
+      -   name: right_arm
+          priority: 1
+          joints: [joint1_right, joint2_right, joint3_right, joint4_right, joint5_right, joint6_right, joint7_right]
+          control_time_step: 0.005
+          selection_matrix: [1, 1, 1, 1, 1, 1, 1]
+          limits:
+              max_velocity: [1, 1, 1, 1, 1, 1, 1]
+              max_acceleration: [1, 1, 1, 1, 1, 1, 1]
+      -   name: shadow_hand
+          joints: [rh_WRJ2,rh_WRJ1,rh_THJ5,rh_THJ4,rh_THJ3,rh_THJ2,rh_FFJ4,rh_FFJ3,rh_FFJ2,rh_MFJ4,rh_MFJ3,rh_MFJ2,rh_RFJ4,rh_RFJ3,rh_RFJ2,rh_LFJ5,rh_LFJ4,rh_LFJ3,rh_LFJ2]
+          control_time_step: 0.005 #0.001
+          selection_matrix: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]
+          limits:
+              max_acceleration: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+joint_space_otgs:
+    -     joint_group: right_arm
+          input_data: PreviousOutput #Hybrid #PreviousOutput #CurrentState
+    -     joint_group: shadow_hand
+          input_data: PreviousOutput #Hybrid #PreviousOutput #CurrentState
+
+task_space_controller:
+    wrench_measure_enabled: false
+    control_time_step: 0.005
+
+ik_controller:
+    IK_type: StandardQP
+    QP_solver:
+      type: osqp
+      verbose: false
+      check_termination: 10
+      eps_abs: 1e-5
+      eps_rel: 1e-5
+
+model:
+    path: app_model/bazar_shadow_right.yaml
+    world_pose: [0, 0, 0, 0, 0, 0]
+
+drivers:
+    -   type: vrep_main
+        cycle_time: 0.005
+        port: -1
+    -   type: vrep_joint
+        joint_group: right_arm
+        control_mode: Position
+        joint_names: [LBR4p_joint1, LBR4p_joint2, LBR4p_joint3, LBR4p_joint4, LBR4p_joint5, LBR4p_joint6, LBR4p_joint7]
+    -   type: vrep_joint
+        joint_group: shadow_hand
+        control_mode: Position
+        joint_names: [WRJ2,WRJ1,THJ5,THJ4,THJ3,THJ2,FFJ4,FFJ3,FFJ2,MFJ4,MFJ3,MFJ2,RFJ4,RFJ3,RFJ2,LFJ5,LFJ4,LFJ3,LFJ2]
+
+
+# collision_avoidance:
+#   d_activation: 0.05
+#   d_limit: 0.02
+#   damper_factor: 0.1
+#   disable_collisions:
+#     - link: fixed_base
+#       other_links: [link1_left, link2_left, link1_right, link2_right]
+#     - link: link1_left
+#       other_links: [link2_left, link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link2_left
+#       other_links: [link3_left, link4_left, link1_right, link2_right, link3_right]
+#     - link: link3_left
+#       other_links: [link4_left, link5_left, link1_right, link2_right]
+#     - link: link4_left
+#       other_links: [link5_left, link6_left, link7_left]
+#     - link: link5_left
+#       other_links: [link6_left, link7_left]
+#     - link: link6_left
+#       other_links: [link7_left]
+#     - link: link1_right
+#       other_links: [link2_right, link3_right, link4_right]
+#     - link: link2_right
+#       other_links: [link3_right, link4_right]
+#     - link: link3_right
+#       other_links: [link4_right, link5_right]
+#     - link: link4_right
+#       other_links: [link5_right, link6_right, link7_right]
+#     - link: link5_right
+#       other_links: [link6_right, link7_right]
+#     - link: link6_right
+#       other_links: [link7_right]
+
+logger:
+    log_folder: app_log/simple_simu_log
