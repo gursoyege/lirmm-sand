@@ -69,15 +69,3 @@ To get linker flags run:
 pkg-config --static --libs rkcl-sand-manipulation_<name of library>
 ```
 
-
-About authors
-=====================
-
-rkcl-sand-manipulation has been developped by following authors: 
-+ Sonny Tarbouriech (LIRMM)
-
-Please contact Sonny Tarbouriech - LIRMM for more information or questions.
-
-
-[package_site]: http://rkcl.lirmm.net/rkcl-framework/packages/rkcl-sand-manipulation "rkcl-sand-manipulation package"
-
