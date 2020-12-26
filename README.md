@@ -1,8 +1,7 @@
 # LIRMM-sand
 
 Sand manipulation project.
-Master branch doesn't contain the output data which is the result after execution of the program.
-Example branch is the result of the executed Master branch which contains the output folder.
+Please check the project report in the directory "/lirmm-sand_report.pdf" for more detailed explanaiton.
 
 ## Prerequisites
 
