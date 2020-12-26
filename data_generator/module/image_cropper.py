@@ -26,12 +26,32 @@ def run():
         pos[1] = center[1] - posMean[1]/2
         pos[3] = center[1] + posMean[1]/2
 
+        while pos[0]<0:
+            pos[0] += 1
+            pos[2] += 1
+        while pos[1]<0:
+            pos[1] += 1
+            pos[3] += 1
+        while pos[2]>IM_SIZE[0]:
+            pos[0] -= 1
+            pos[2] -= 1
+        while pos[3]>IM_SIZE[1]:
+            pos[1] -= 1
+            pos[3] -= 1
+
         img = cv2.imread(IMAGE_PATH + "/" + name, cv2.IMREAD_GRAYSCALE)
         if xml[-11] == "/":
             filename = xml[-10:-4]
-        else:
+        elif xml[-12] == "/":
             filename = xml[-11:-4]
-        foldername = filename[0:4]
+        elif xml[-13] == "/":
+            filename = xml[-12:-4]
+        
+        if (xml[-12].isdigit() and xml[-11].isdigit()) or (xml[-11].isdigit() and xml[-10].isdigit()) == True:
+            foldername = filename[0:5]
+        else:
+            foldername = filename[0:4]
+        
         if not os.path.exists(DATA_PATH + "/beg/"+ foldername):
             os.makedirs(DATA_PATH + "/beg/"+ foldername, 0o777)
         roi = img[int(pos[1]):int(pos[3]), int(pos[0]):int(pos[2])]
@@ -50,12 +70,32 @@ def run():
         pos[1] = center[1] - posMean[1]/2
         pos[3] = center[1] + posMean[1]/2
 
+        while pos[0]<0:
+            pos[0] += 1
+            pos[2] += 1
+        while pos[1]<0:
+            pos[1] += 1
+            pos[3] += 1
+        while pos[2]>IM_SIZE[0]:
+            pos[0] -= 1
+            pos[2] -= 1
+        while pos[3]>IM_SIZE[1]:
+            pos[1] -= 1
+            pos[3] -= 1
+
         img = cv2.imread(IMAGE_PATH + "/" + name, cv2.IMREAD_GRAYSCALE)
         if xml[-11] == "/":
             filename = xml[-10:-4]
-        else:
+        elif xml[-12] == "/":
             filename = xml[-11:-4]
-        foldername = filename[0:4]
+        elif xml[-13] == "/":
+            filename = xml[-12:-4]
+        
+        if (xml[-12].isdigit() and xml[-11].isdigit()) or (xml[-11].isdigit() and xml[-10].isdigit()) == True:
+            foldername = filename[0:5]
+        else:
+            foldername = filename[0:4]
+        
         if not os.path.exists(DATA_PATH + "/end/"+ foldername):
             os.makedirs(DATA_PATH + "/end/"+ foldername, 0o777)
         roi = img[int(pos[1]):int(pos[3]), int(pos[0]):int(pos[2])]

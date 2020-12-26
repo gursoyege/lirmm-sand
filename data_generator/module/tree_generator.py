@@ -12,5 +12,10 @@ def run():
         os.makedirs(DATA_PATH + "/beg")
         os.makedirs(DATA_PATH + "/end")
     if not os.path.exists(AUGMENT_PATH):
-        os.makedirs(AUGMENT_PATH + "/beg")
-        os.makedirs(AUGMENT_PATH + "/end")
+        os.makedirs(AUGMENT_PATH + "/train/beg")
+        os.makedirs(AUGMENT_PATH + "/train/end")
+        os.makedirs(AUGMENT_PATH + "/test/beg")
+        os.makedirs(AUGMENT_PATH + "/test/end")
+    if not os.path.exists(R_PATH):
+        os.makedirs(R_PATH + "/beg")
+        os.makedirs(R_PATH + "/end")
