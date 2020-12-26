@@ -2,7 +2,7 @@
 
 Sand manipulation project.
 
-**Please check the [project report](https://github.com/gursoyege/lirmm-sand/blob/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
+**Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
 
 ## Prerequisites
 
