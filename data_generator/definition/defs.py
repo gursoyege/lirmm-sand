@@ -62,6 +62,16 @@ def findPosMean(folderpath):
     else:
         return (posMean/n).astype(int)
 
+def begWrite(i_move, i_example, i_xml, annNames, nameImg, ann_path, xml_path):
+    action, n_, pos = getXml(ann_path + annNames[i_xml])
+    filename = nameGen(False, i_move, i_example)
+    writeXml(action, nameImg, pos, filename, xml_path + "/beg")
+
+def endWrite(i_move, i_example, i_xml, annNames, nameImg, ann_path, xml_path):
+    action, n_, pos = getXml(ann_path + annNames[i_xml-1])
+    filename = nameGen(True, i_move, i_example)
+    writeXml(action, nameImg, pos, filename, xml_path + "/end")
+
 
 ''' File names '''
 
