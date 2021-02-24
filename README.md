@@ -1,6 +1,6 @@
 # LIRMM-sand
 
-**Manipulation of deformable materials using vision and machine learning. Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
+**Dexterous manipulation of deformable materials with KUKA LWR and Shadow Hand using vision and machine learning. Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
 
 ## Prerequisites
 
