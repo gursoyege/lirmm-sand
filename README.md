@@ -1,6 +1,6 @@
 # LIRMM-sand
 
-**Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
+**Manipulation of deformable materials using vision and machine learning. Please check the [project report](https://raw.githubusercontent.com/gursoyege/lirmm-sand/master/lirmm-sand_report.pdf) for more detailed explanaiton.**
 
 ## Prerequisites
 
