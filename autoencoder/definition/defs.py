@@ -45,10 +45,11 @@ def get_data(folder_path):
 
 
 def get_r_val(folder_path, train_cla_n, test_cla_n):
-    r_all = np.array([])
-    beginning = 1
+    r_train = np.array([])
+    r_test = np.array([])
     
-    actionFolder = sorted(glob.glob(folder_path + "*/"))
+    beginning = 1
+    actionFolder = sorted(glob.glob(folder_path + "train/*/"))
     
     for ins_e, ins in enumerate(actionFolder):
         print(ins)
@@ -58,12 +59,29 @@ def get_r_val(folder_path, train_cla_n, test_cla_n):
             r_act = np.load(r)
             if beginning == 1:
                 r_shape = r_act.shape
-                r_all = np.zeros((train_cla_n + test_cla_n, r_shape[0], r_shape[1], 1))
-                r_all[r_e,:,:,:] = r_act
+                r_train = np.zeros((train_cla_n, r_shape[0], r_shape[1], 1))
+                r_train[r_e,:,:,:] = r_act
                 beginning = 0
             else :
-                r_all[r_e,:,:,:] = r_act
-    return r_all
+                r_train[r_e,:,:,:] = r_act
+    
+    beginning = 1
+    actionFolder = sorted(glob.glob(folder_path + "test/*/"))
+    
+    for ins_e, ins in enumerate(actionFolder):
+        print(ins)
+        instanceFolder = sorted(glob.glob(ins + "*.npy"))
+        for r_e, r in enumerate(instanceFolder):
+            print(r)
+            r_act = np.load(r)
+            if beginning == 1:
+                r_shape = r_act.shape
+                r_test = np.zeros((test_cla_n, r_shape[0], r_shape[1], 1))
+                r_test[r_e,:,:,:] = r_act
+                beginning = 0
+            else :
+                r_test[r_e,:,:,:] = r_act
+    return r_train, r_test
 
 def make_epoch(set_complete):
     ins_e,cla_e,img_e,img_h,img_w,img_d=set_complete.shape
@@ -83,7 +101,7 @@ def make_epoch(set_complete):
     return cla_iter, img_iter , cla_rang, img_rang
 
 
-def make_batch(set_complete, cla_iter, img_iter, batch_size, r_all):
+def make_batch(set_complete, cla_iter, img_iter, batch_size, r_train):
     ins_e,cla_e,img_e,img_h,img_w,img_d=set_complete.shape
     r_batch = np.zeros((batch_size,img_h,img_w,img_d),dtype='float32')
     input_batch = np.zeros((batch_size,img_h,img_w,img_d),dtype='float32')
@@ -93,7 +111,7 @@ def make_batch(set_complete, cla_iter, img_iter, batch_size, r_all):
         img_pick = next(img_iter, None)
         if cla_pick == None or img_pick == None:
             break
-        r_batch[i,:,:,:] = r_all[int(cla_pick), :,:,:]
+        r_batch[i,:,:,:] = r_train[int(cla_pick), :,:,:]
         input_batch[i,:,:,:] = set_complete[0,int(cla_pick),int(img_pick),:,:,:]        
         ground_batch[i,:,:,:] = set_complete[1,int(cla_pick),int(img_pick),:,:,:]
     return input_batch, ground_batch, r_batch

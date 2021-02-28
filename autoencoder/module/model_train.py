@@ -1,11 +1,15 @@
 from common.imports import *
 
 def clean():
-    os.remove(OUTPUT_PATH + "weights.h5")
-    os.remove(OUTPUT_PATH + "loss.npy")
-    os.remove(OUTPUT_PATH + "loss.jpg")
+    if os.path.exists(OUTPUT_PATH):
+        if os.path.isfile(OUTPUT_PATH + "weights.h5"):
+            os.remove(OUTPUT_PATH + "weights.h5")
+        if os.path.isfile(OUTPUT_PATH + "loss.npy"):
+            os.remove(OUTPUT_PATH + "loss.npy")
+        if os.path.isfile(OUTPUT_PATH + "loss.png"):
+            os.remove(OUTPUT_PATH + "loss.png")
 
-def run(autoencoder, train_set, train_cla_n, train_img_n, r, r_all):
+def run(autoencoder, train_set, train_cla_n, train_img_n, r, r_train):
     """Training parameters"""
 
     batch_size = CLA_PASS * train_cla_n
@@ -19,7 +23,7 @@ def run(autoencoder, train_set, train_cla_n, train_img_n, r, r_all):
         cla_iter, img_iter , cla_rang, img_rang = make_epoch(train_set)
 
         for step in range(step_per_epoch):
-            input_batch, ground_batch, r_batch = make_batch(train_set, cla_iter, img_iter, batch_size, r_all)
+            input_batch, ground_batch, r_batch = make_batch(train_set, cla_iter, img_iter, batch_size, r_train)
             input_iter = iter(input_batch)
             ground_iter = iter(ground_batch)
             r_iter = iter(r_batch)
@@ -52,4 +56,4 @@ def run(autoencoder, train_set, train_cla_n, train_img_n, r, r_all):
     plt.xlabel("epoch")
     plt.ylabel("loss")
     plt.plot(loss_table)
-    plt.savefig(OUTPUT_PATH + "loss.jpg")
+    plt.savefig(OUTPUT_PATH + "loss.png")

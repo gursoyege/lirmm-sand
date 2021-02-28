@@ -40,17 +40,12 @@ def run():
             pos[3] -= 1
 
         img = cv2.imread(IMAGE_PATH + "/" + name, cv2.IMREAD_GRAYSCALE)
-        if xml[-11] == "/":
-            filename = xml[-10:-4]
-        elif xml[-12] == "/":
-            filename = xml[-11:-4]
-        elif xml[-13] == "/":
-            filename = xml[-12:-4]
-        
-        if (xml[-12].isdigit() and xml[-11].isdigit()) or (xml[-11].isdigit() and xml[-10].isdigit()) == True:
-            foldername = filename[0:5]
-        else:
-            foldername = filename[0:4]
+    
+        i_slash = xml.rfind('/')
+        i_dot = xml.rfind('.')
+        filename = xml[i_slash+1:i_dot]
+
+        foldername = filename[0:7]
         
         if not os.path.exists(DATA_PATH + "/beg/"+ foldername):
             os.makedirs(DATA_PATH + "/beg/"+ foldername, 0o777)
@@ -84,17 +79,12 @@ def run():
             pos[3] -= 1
 
         img = cv2.imread(IMAGE_PATH + "/" + name, cv2.IMREAD_GRAYSCALE)
-        if xml[-11] == "/":
-            filename = xml[-10:-4]
-        elif xml[-12] == "/":
-            filename = xml[-11:-4]
-        elif xml[-13] == "/":
-            filename = xml[-12:-4]
-        
-        if (xml[-12].isdigit() and xml[-11].isdigit()) or (xml[-11].isdigit() and xml[-10].isdigit()) == True:
-            foldername = filename[0:5]
-        else:
-            foldername = filename[0:4]
+
+        i_slash = xml.rfind('/')
+        i_dot = xml.rfind('.')
+        filename = xml[i_slash+1:i_dot]
+
+        foldername = filename[0:7]
         
         if not os.path.exists(DATA_PATH + "/end/"+ foldername):
             os.makedirs(DATA_PATH + "/end/"+ foldername, 0o777)

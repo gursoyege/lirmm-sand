@@ -9,6 +9,10 @@ def clean():
         os.remove(f)
 
 def run():
+    batchFile = open(BATCH_PATH + "/batch.txt", 'r')
+    sampleBatch = np.array(batchFile.read().split(','))
+    sampleBatch = sampleBatch.astype(int)
+
     # Generate
     annNames = getAnnNames(ANNOTATION_PATH)
     nameImg = ""
@@ -16,8 +20,11 @@ def run():
     i_xml = -1
     i_move = 0
     i_example = 1
+    i_batch = 0
     nextShould = -1
     switch = 0
+    sampleBatch_curr = 0
+
     for i_img, img in enumerate(sorted(glob.glob(IMAGE_PATH+"/*.png"))):
         nameImg = img[-13:-4] + ".png"
         numImg = int(nameImg[5:9])
@@ -25,6 +32,9 @@ def run():
         if (numImg != nextShould):
             switch += 1
             if state != 'newRecord' or switch == 3:
+                if switch == 3:
+                    i_batch += 1
+                    sampleBatch_curr += sampleBatch[i_batch]
                 i_move += 1
                 i_xml += 1
                 switch = 1
@@ -32,11 +42,14 @@ def run():
             state = 'switch'
 
         if state == 'switch':
+
+
             if i_img == 0:
                 nextShould = numImg
                 switch = 0
                 state = 'onlyBeg'
-            elif i_move % sampleBatch == 1:
+                sampleBatch_curr = sampleBatch[i_batch]
+            elif i_move == sampleBatch_curr + 1:
                 state = 'newRecord'
             elif i_xml == len(annNames):
                 state = 'onlyEnd'

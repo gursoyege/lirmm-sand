@@ -72,7 +72,6 @@ def endWrite(i_move, i_example, i_xml, annNames, nameImg, ann_path, xml_path):
     filename = nameGen(True, i_move, i_example)
     writeXml(action, nameImg, pos, filename, xml_path + "/end")
 
-
 ''' File names '''
 
 
@@ -82,7 +81,7 @@ def nameGen(end, i_move, i_example):
         i_move -= 1
     else:
         state = "beg_"
-    return str(i_move) + state + str(i_example)
+    return str(i_move).zfill(4) + state + str(i_example)
 
 
 ''' Augmentation methods '''

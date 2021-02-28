@@ -1,13 +1,6 @@
-#act_name = "poke_16times_loSand"
-#act_name = "grasp_4times_hiSand"
-#act_name = "grasp_4times_hiSand2"
-#act_name = "tap_4times_hiSand"
-#act_name = "tap_4times_hiSand2"
-#act_name = "tap_8times_loSand"
-
-act_name = "poke"
+#act_name = "poke"
 #act_name = "grasp"
-
+act_name = "fist"
 
 lite = False
 
